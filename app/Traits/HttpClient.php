@@ -9,8 +9,6 @@ trait HttpClient
     {
         $client = new \GuzzleHttp\Client();
         $response = $client->request($method, $uri, [
-
-
             'multipart' => [
                 [
                     'name' => 'file',
