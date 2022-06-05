@@ -17,10 +17,6 @@ class FileUploadController extends Controller
 
                 'multipart' => [
                     [
-                        'name' => 'data',
-                        'contents' => json_decode($request->all()),
-                    ],
-                    [
                         'name' => 'file',
                         'contents' => fopen($file->getRealPath(), 'r'),
                         'filename' => $file->getClientOriginalName(),
