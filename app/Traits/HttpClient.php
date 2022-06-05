@@ -5,8 +5,9 @@ namespace App\Traits;
 
 trait HttpClient
 {
-    public function request($method, $uri, $body = [])
+    public function sendRequest($method, $uri, $body = [])
     {
+        // return $body;
         $client = new \GuzzleHttp\Client();
         $response = $client->request($method, $uri, [
             'multipart' => [
@@ -17,6 +18,7 @@ trait HttpClient
                 ],
             ],
         ]);
+
 
         return $response->getBody()->getContents();
     }

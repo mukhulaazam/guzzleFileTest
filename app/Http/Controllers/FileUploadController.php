@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Traits\HttpClient;
 
 class FileUploadController extends Controller
 {
+    use HttpClient;
+
     public function store(Request $request)
     {
-        return $this->$request('POST', 'http://localhost:8000/api/upload', $request->all());
+        return $this->sendRequest('POST', 'http://localhost:8005/api/file', $request->all());
+
         // if ($request->hasFile('file')) {
         //     $file = $request->file('file');
 
